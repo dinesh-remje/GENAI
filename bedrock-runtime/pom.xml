@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.bedrock</groupId>
-	<artifactId>bedrock-service</artifactId>
+	<artifactId>bedrock-runtime</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bedrock-service</name>
+	<name>bedrock-runtime</name>
 	<packaging>jar</packaging>
 
 	<properties>
