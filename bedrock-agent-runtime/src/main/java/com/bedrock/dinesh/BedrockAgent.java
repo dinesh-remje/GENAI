@@ -38,6 +38,12 @@ public class BedrockAgent {
 				.inputText(inputText)
 				.enableTrace(true).build();
 
+		//Handle Responses**
+		//The program uses an **asynchronous handler** to process responses from the Bedrock agent.	
+		//The **`onResponse`** callback processes the initial response from the agent.
+		//**Event Stream:** Handles streaming responses, which may arrive in chunks.
+		//**`PayloadPart`:** Represents a piece of data from the stream.
+		//**Processing the Stream:** Converts streamed byte data into a string for display.
 		InvokeAgentResponseHandler handler = InvokeAgentResponseHandler.builder().onResponse(response -> {
 			System.out.println("Response Received from Agent: "+response);
 			// Process the response here
@@ -57,13 +63,19 @@ public class BedrockAgent {
 			System.out.println("Error occurred: "+error);
 		}).build();
 
+		//Invoke the Agent
 		CompletableFuture<Void> future = bedrockClient.invokeAgent(request, handler);
 
+		//Handle the completion 
+		//**Purpose:** Waits for the agent's response to complete within 30 seconds.
+		// **Exception Handling:** Captures timeouts or other issues.
 		try {
 		    future.get(30, TimeUnit.SECONDS);
 		} catch (Exception e) {
 			System.out.println("Error invoking Bedrock agent: "+e);
 		} 
+		
+		//Closes the Bedrock client to free up resources.
 		bedrockClient.close();
 	} 	
 }
