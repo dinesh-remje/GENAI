@@ -28,8 +28,8 @@ public class Bedrockknowledgebase {
 
 	    // Configure Knowledge Base and Model
 	    KnowledgeBaseRetrieveAndGenerateConfiguration kbConfig = KnowledgeBaseRetrieveAndGenerateConfiguration.builder()
-	            .knowledgeBaseId("AXI5Z7A8JS") // Replace with actual Knowledge Base ID
-	            .modelArn("anthropic.claude-3-haiku-20240307-v1:0") // Replace with actual Model ARN
+	            .knowledgeBaseId("ACTUAL KNOWLEDGEBASE ID") // Replace with actual Knowledge Base ID
+	            .modelArn("ACTUAL MODEL ID") // Replace with actual Model ARN, I prefer using claude haiku model
 	            .build();
 
 	    // Create Retrieve and Generate Configuration
